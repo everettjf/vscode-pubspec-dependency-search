@@ -2,6 +2,8 @@
 
 VSCode extension for flutter developer to easy search package in web browser.
 
+[Click here to install](https://marketplace.visualstudio.com/items?itemName=everettjf.pubspec-dependency-search)
+
 ## Features
 
 1. Search package name by click in `pubspec.yaml` file.
