@@ -1,19 +1,29 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import PubspecCodeLensProvider from './provider';
+
+function startSearch(packageName: string) {
+	// https://pub.dartlang.org/packages?q=path
+	let searchUrl = 'https://pub.dartlang.org/packages?q=' + encodeURI(packageName);
+	vscode.env.openExternal(vscode.Uri.parse(searchUrl));
+}
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
+	context.subscriptions.push(
+		vscode.languages.registerCodeLensProvider('yaml', new PubspecCodeLensProvider())
+	);
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-		console.log('Congratulations, your extension "pubspec-dependency-search" is now active!');
+	let commandSearch = vscode.commands.registerTextEditorCommand('extension.pubspecDependencySearchWithParameter',
+		async (textEditor: vscode.TextEditor, edit: vscode.TextEditorEdit, packageName: string) => {
+			startSearch(packageName);
+		}
+	);
+	context.subscriptions.push(commandSearch);
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('extension.pubspecDependencySearch', () => {
+	let commandInput = vscode.commands.registerCommand('extension.pubspecDependencySearch', () => {
 		// The code you place here will be executed every time your command is executed
 		vscode.window.showInputBox().then( text => {
 			if (text === undefined || text === '') {
@@ -21,15 +31,10 @@ export function activate(context: vscode.ExtensionContext) {
 				return;
 			}
 			console.log('input : ' + text);
-
-			// https://pub.dartlang.org/packages?q=path
-			let searchUrl = 'https://pub.dartlang.org/packages?q=' + encodeURI(text);
-			vscode.env.openExternal(vscode.Uri.parse(searchUrl));
+			startSearch(text);
 		});
-
 	});
-
-	context.subscriptions.push(disposable);
+	context.subscriptions.push(commandInput);
 }
 
 // this method is called when your extension is deactivated

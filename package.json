@@ -10,6 +10,7 @@
 		"Other"
 	],
 	"activationEvents": [
+		"onLanguage:yaml",
 		"onCommand:extension.pubspecDependencySearch"
 	],
 	"main": "./out/extension.js",
