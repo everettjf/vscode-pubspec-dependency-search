@@ -1,7 +1,7 @@
 {
 	"name": "pubspec-dependency-search",
 	"displayName": "Pubspec Dependency Search",
-	"description": "easy search dependency name in dart packages site when opening pubspec file",
+	"description": "Search dependency name in dart packages site when opening pubspec file",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.32.0"
@@ -10,13 +10,13 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onCommand:extension.pubspecDependencySearch"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [{
-			"command": "extension.helloWorld",
-			"title": "Hello World"
+			"command": "extension.pubspecDependencySearch",
+			"title": "Pubspec Dependency Search in Dart Packages Site"
 		}]
 	},
 	"scripts": {
