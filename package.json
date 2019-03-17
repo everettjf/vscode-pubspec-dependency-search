@@ -1,7 +1,7 @@
 {
 	"name": "pubspec-dependency-search",
 	"displayName": "Pubspec Dependency Search",
-	"description": "Search dependency name in dart packages site when opening pubspec file",
+	"description": "Easy search dependency name in dart packages site for flutter developers",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.32.0"
@@ -20,6 +20,7 @@
 			"title": "Pubspec Dependency Search in Dart Packages Site"
 		}]
 	},
+	"icon": "img/icon.png",
 	"scripts": {
 		"vscode:prepublish": "yarn run compile",
 		"compile": "tsc -p ./",
@@ -33,5 +34,14 @@
 		"tslint": "^5.12.1",
 		"@types/node": "^10.12.21",
 		"@types/mocha": "^2.2.42"
-	}
+	},
+    "homepage": "https://github.com/everettjf/vscode-pubspec-dependency-search",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/everettjf/vscode-pubspec-dependency-search.git"
+    },
+	"bugs": {
+        "url": "https://github.com/everettjf/vscode-pubspec-dependency-search/issues",
+        "email": "everettjf@live.com"
+    }
 }
