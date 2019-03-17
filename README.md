@@ -1,6 +1,6 @@
 # Pubspec Dependency Search
 
-VSCode Extension for Flutter Developer
+VSCode extension for flutter developer to easy search package in web browser.
 
 ## Features
 
