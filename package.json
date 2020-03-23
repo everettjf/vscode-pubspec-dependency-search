@@ -1,6 +1,6 @@
 {
 	"name": "pubspec-dependency-search",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"publisher": "everettjf",
 	"displayName": "Pubspec Dependency Search",
 	"description": "Easy search dependency name in dart packages site for flutter developers",
