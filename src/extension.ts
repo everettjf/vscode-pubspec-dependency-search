@@ -3,9 +3,16 @@
 import * as vscode from 'vscode';
 import PubspecCodeLensProvider from './provider';
 
+const key = 'search.baseUrl';
+var baseUrl: string = vscode.workspace.getConfiguration().get(key);
+if (null == baseUrl || baseUrl.trim().length < 1) {
+	baseUrl = "https://pub.dartlang.org/";
+}
+
 function startSearch(packageName: string) {
 	// https://pub.dartlang.org/packages?q=path
-	let searchUrl = 'https://pub.dartlang.org/packages?q=' + encodeURI(packageName);
+	var tempUrl = baseUrl.endsWith("/") ? baseUrl : baseUrl + "/";
+	let searchUrl = tempUrl + 'packages?q=' + encodeURI(packageName);
 	vscode.env.openExternal(vscode.Uri.parse(searchUrl));
 }
 
@@ -25,7 +32,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 	let commandInput = vscode.commands.registerCommand('extension.pubspecDependencySearch', () => {
 		// The code you place here will be executed every time your command is executed
-		vscode.window.showInputBox().then( text => {
+		vscode.window.showInputBox().then(text => {
 			if (text === undefined || text === '') {
 				console.log('no input');
 				return;
@@ -38,4 +45,4 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 // this method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivate() { }

@@ -1,6 +1,6 @@
 {
 	"name": "pubspec-dependency-search",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"publisher": "everettjf",
 	"displayName": "Pubspec Dependency Search",
 	"description": "Easy search dependency name in dart packages site for flutter developers",
@@ -17,10 +17,23 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
-		"commands": [{
-			"command": "extension.pubspecDependencySearch",
-			"title": "Pubspec Dependency Search in Dart Packages Site"
-		}]
+		"configuration": {
+			"type": "object",
+			"title": "pubspec-dependency-search",
+			"properties": {
+				"search.baseUrl": {
+					"type": "string",
+					"default": "https://pub.dartlang.org/",
+					"description": " Search Base Url, 'https://pub.dartlang.org/' is default, or you can use 'https://pub.flutter-io.cn/' instead."
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "extension.pubspecDependencySearch",
+				"title": "Pubspec Dependency Search in Dart Packages Site"
+			}
+		]
 	},
 	"icon": "img/icon.png",
 	"scripts": {
@@ -37,13 +50,13 @@
 		"@types/node": "^10.12.21",
 		"@types/mocha": "^2.2.42"
 	},
-    "homepage": "https://github.com/everettjf/vscode-pubspec-dependency-search",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/everettjf/vscode-pubspec-dependency-search.git"
-    },
+	"homepage": "https://github.com/everettjf/vscode-pubspec-dependency-search",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/everettjf/vscode-pubspec-dependency-search.git"
+	},
 	"bugs": {
-        "url": "https://github.com/everettjf/vscode-pubspec-dependency-search/issues",
-        "email": "everettjf@live.com"
-    }
+		"url": "https://github.com/everettjf/vscode-pubspec-dependency-search/issues",
+		"email": "everettjf@live.com"
+	}
 }
