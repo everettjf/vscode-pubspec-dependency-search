@@ -44,11 +44,11 @@
 		"test": "yarn run compile && node ./node_modules/vscode/bin/test"
 	},
 	"devDependencies": {
-		"typescript": "^3.8.3",
-		"vscode": "^1.1.36",
-		"tslint": "^5.12.1",
+		"@types/mocha": "^2.2.42",
 		"@types/node": "^10.12.21",
-		"@types/mocha": "^2.2.42"
+		"tslint": "^5.12.1",
+		"typescript": "^3.8.3",
+		"vscode": "^1.1.36"
 	},
 	"homepage": "https://github.com/everettjf/vscode-pubspec-dependency-search",
 	"repository": {

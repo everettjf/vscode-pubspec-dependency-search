@@ -4,12 +4,15 @@ import * as vscode from 'vscode';
 import PubspecCodeLensProvider from './provider';
 
 const key = 'search.baseUrl';
-var baseUrl: string = vscode.workspace.getConfiguration().get(key);
-if (null == baseUrl || baseUrl.trim().length < 1) {
+var baseUrl: string|undefined = vscode.workspace.getConfiguration().get(key);
+if (undefined === baseUrl || baseUrl.trim().length < 1) {
 	baseUrl = "https://pub.dartlang.org/";
 }
 
 function startSearch(packageName: string) {
+	if (baseUrl === undefined) {
+		return;
+	}
 	// https://pub.dartlang.org/packages?q=path
 	var tempUrl = baseUrl.endsWith("/") ? baseUrl : baseUrl + "/";
 	let searchUrl = tempUrl + 'packages?q=' + encodeURI(packageName);
