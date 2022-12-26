@@ -1,9 +1,9 @@
 {
-	"name": "flutter-package-docs",
+	"name": "flutter-dependency-docs",
 	"version": "1.0.0",
-	"publisher": "djbkwon",
-	"displayName": "Flutter Package Docs",
-	"description": "View package on pub.dev",
+	"publisher": "danieljbk",
+	"displayName": "Flutter Dependency Docs",
+	"description": "View your dependencies on pub.dev!",
 	"engines": {
 		"vscode": "^1.32.0"
 	},
@@ -24,14 +24,14 @@
 				"search.baseUrl": {
 					"type": "string",
 					"default": "https://pub.dev/",
-					"description": "View package on pub.dev"
+					"description": "View your dependencies on pub.dev!"
 				}
 			}
 		},
 		"commands": [
 			{
 				"command": "extension.viewDependency",
-				"title": "View package on pub.dev"
+				"title": "View your dependencies on pub.dev!"
 			}
 		]
 	},

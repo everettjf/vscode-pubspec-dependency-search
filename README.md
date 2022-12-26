@@ -1,12 +1,15 @@
-# Flutter Package Docs
+# Flutter Dependency Docs
 
-View package on pub.dev
+View your dependencies on pub.dev!
 
 ## How?
 
-Click the link above any dependency in `pubspec.yaml`.
+Click the link above your dependencies in `pubspec.yaml`.
 
 ![view](/img/view-package.png)
 
-Code by [Joonbeom Kwon](https://github.com/danieljbk) & [Everettjf](https://github.com/everettjf)
-Icon by [Freepik](https://www.flaticon.com/authors/freepik)
+## Credits
+
+Coded by [Joonbeom Kwon](https://github.com/danieljbk) & [Everettjf](https://github.com/everettjf).
+
+Icon designed by [Freepik](https://www.flaticon.com/authors/freepik).
