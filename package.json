@@ -1,9 +1,9 @@
 {
-	"name": "pubspec-dependency-search",
-	"version": "1.1.0",
-	"publisher": "everettjf",
-	"displayName": "Pubspec Dependency Search",
-	"description": "Easy search dependency name in dart packages site for flutter developers",
+	"name": "flutter-package-docs",
+	"version": "1.0.0",
+	"publisher": "djbkwon",
+	"displayName": "Flutter Package Docs",
+	"description": "View package on pub.dev",
 	"engines": {
 		"vscode": "^1.32.0"
 	},
@@ -13,25 +13,25 @@
 	],
 	"activationEvents": [
 		"onLanguage:yaml",
-		"onCommand:extension.pubspecDependencySearch"
+		"onCommand:extension.viewDependency"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"configuration": {
 			"type": "object",
-			"title": "pubspec-dependency-search",
+			"title": "view-dependency",
 			"properties": {
 				"search.baseUrl": {
 					"type": "string",
-					"default": "https://pub.dartlang.org/",
-					"description": " Search Base Url, 'https://pub.dartlang.org/' is default, or you can use 'https://pub.flutter-io.cn/' instead."
+					"default": "https://pub.dev/",
+					"description": "View package on pub.dev"
 				}
 			}
 		},
 		"commands": [
 			{
-				"command": "extension.pubspecDependencySearch",
-				"title": "Pubspec Dependency Search in Dart Packages Site"
+				"command": "extension.viewDependency",
+				"title": "View package on pub.dev"
 			}
 		]
 	},
@@ -50,13 +50,13 @@
 		"typescript": "^3.8.3",
 		"vscode": "^1.1.36"
 	},
-	"homepage": "https://github.com/everettjf/vscode-pubspec-dependency-search",
+	"homepage": "https://github.com/danieljbk/flutter-package-docs",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/everettjf/vscode-pubspec-dependency-search.git"
+		"url": "https://github.com/danieljbk/flutter-package-docs.git"
 	},
 	"bugs": {
-		"url": "https://github.com/everettjf/vscode-pubspec-dependency-search/issues",
-		"email": "everettjf@live.com"
+		"url": "https://github.com/danieljbk/flutter-package-docs/issues",
+		"email": "djbkwon@gmail.com"
 	}
 }

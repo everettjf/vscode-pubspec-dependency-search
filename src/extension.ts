@@ -1,52 +1,53 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
-import PubspecCodeLensProvider from './provider';
+import * as vscode from 'vscode'
+import PubspecCodeLensProvider from './provider'
 
-const key = 'search.baseUrl';
-var baseUrl: string|undefined = vscode.workspace.getConfiguration().get(key);
-if (undefined === baseUrl || baseUrl.trim().length < 1) {
-	baseUrl = "https://pub.dartlang.org/";
-}
-
-function startSearch(packageName: string) {
-	if (baseUrl === undefined) {
-		return;
-	}
-	// Daniel - Now takes user straight to package
-	// https://pub.dartlang.org/packages/name
-	var tempUrl = baseUrl.endsWith("/") ? baseUrl : baseUrl + "/";
-	let searchUrl = tempUrl + 'packages/' + encodeURI(packageName);
-	vscode.env.openExternal(vscode.Uri.parse(searchUrl));
+function openPackageUrl(packageName: string) {
+  // https://pub.dev/packages/name
+  let packageUrl =
+    vscode.workspace.getConfiguration().get('search.baseUrl') +
+    'packages/' +
+    encodeURI(packageName)
+  vscode.env.openExternal(vscode.Uri.parse(packageUrl))
 }
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-	context.subscriptions.push(
-		vscode.languages.registerCodeLensProvider('yaml', new PubspecCodeLensProvider())
-	);
+  context.subscriptions.push(
+    vscode.languages.registerCodeLensProvider(
+      'yaml',
+      new PubspecCodeLensProvider()
+    )
+  )
 
-	let commandSearch = vscode.commands.registerTextEditorCommand('extension.pubspecDependencySearchWithParameter',
-		async (textEditor: vscode.TextEditor, edit: vscode.TextEditorEdit, packageName: string) => {
-			startSearch(packageName);
-		}
-	);
-	context.subscriptions.push(commandSearch);
+  let commandSearch = vscode.commands.registerTextEditorCommand(
+    'extension.viewDependencyWithParameter',
+    async (
+      textEditor: vscode.TextEditor,
+      edit: vscode.TextEditorEdit,
+      packageName: string
+    ) => {
+      openPackageUrl(packageName)
+    }
+  )
+  context.subscriptions.push(commandSearch)
 
-	let commandInput = vscode.commands.registerCommand('extension.pubspecDependencySearch', () => {
-		// The code you place here will be executed every time your command is executed
-		vscode.window.showInputBox().then(text => {
-			if (text === undefined || text === '') {
-				console.log('no input');
-				return;
-			}
-			console.log('input : ' + text);
-			startSearch(text);
-		});
-	});
-	context.subscriptions.push(commandInput);
+  let commandInput = vscode.commands.registerCommand(
+    'extension.viewDependency',
+    () => {
+      // The code you place here will be executed every time your command is executed
+      vscode.window.showInputBox().then((text) => {
+        if (text === undefined || text === '') {
+          console.log('no input')
+          return
+        }
+        console.log('input : ' + text)
+        openPackageUrl(text)
+      })
+    }
+  )
+  context.subscriptions.push(commandInput)
 }
 
 // this method is called when your extension is deactivated
-export function deactivate() { }
+export function deactivate() {}

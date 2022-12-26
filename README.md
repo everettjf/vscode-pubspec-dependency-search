@@ -1,13 +1,12 @@
 # Flutter Package Docs
 
-View documentation of dependencies on pub.dev
+View package on pub.dev
 
-## How does it work?
+## How?
 
-1. Click on package in `pubspec.yaml` file.
+Click the link above any dependency in `pubspec.yaml`.
 
-![seach-editor](/img/search-in-editor.png)
+![view](/img/view-package.png)
 
-2. Input package name.
-
-![seach-command](/img/search-command.png)
+Code by [Joonbeom Kwon](https://github.com/danieljbk) & [Everettjf](https://github.com/everettjf)
+Icon by [Freepik](https://www.flaticon.com/authors/freepik)
