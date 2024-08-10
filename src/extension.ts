@@ -15,7 +15,7 @@ function startSearch(packageName: string) {
 	}
 	// https://pub.dartlang.org/packages?q=path
 	var tempUrl = baseUrl.endsWith("/") ? baseUrl : baseUrl + "/";
-	let searchUrl = tempUrl + 'packages?q=' + encodeURI(packageName);
+	let searchUrl = tempUrl + 'packages/' + encodeURI(packageName);
 	vscode.env.openExternal(vscode.Uri.parse(searchUrl));
 }
 
